@@ -1,0 +1,45 @@
+.container {
+    max-width: 1400px;
+}
+
+.p-21px {
+    padding: 21px;
+}
+
+ul {
+    list-style-type: none; 
+}
+
+.menu-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.menu-btn:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.menu-count {
+    color: white;
+    font-size: 14px;
+}
+
+body {
+    font-family: "Gothic A1", Sans-serif;
+  }
+
+h1 {
+    font-weight: 700;
+    font-size: 72px;
+}
+
+.btn-outline-dark {
+    background-color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 16px 52px 13px 52px;
+    font-size: 14px;
+    margin: 50px 0px;
+}
