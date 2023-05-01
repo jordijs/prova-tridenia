@@ -22,7 +22,10 @@
       rel="stylesheet"
     />
     <!--Add Font Awesome-->
-    <script src="https://kit.fontawesome.com/68f3ec3982.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/68f3ec3982.js"
+      crossorigin="anonymous"
+    ></script>
     <!--Add jQuery via CDN-->
     <script
       src="https://code.jquery.com/jquery-3.6.4.js"
@@ -32,12 +35,19 @@
     <!--JQuery script-->
     <script>
       $(document).ready(function () {
-        $("p").click(function () {
-          $(this).hide();
-        });
+        $(".dropdown")
+          .on("mouseenter", function () {
+            console.log("Hover");
+            $(this).find(".dropdown-menu").first().fadeIn();
+          })
+          .on("mouseleave", function () {
+            console.log("Marxa el hover");
+            $(this).find(".dropdown-menu").first().fadeOut();
+          });
       });
     </script>
   </head>
+
   <body>
     <div class="container">
       <div
@@ -49,49 +59,274 @@
           height: 693px;
         "
       >
-        <header class="row p-21px align-items-center">
-          <div class="col-2 d-flex justify-content-start">
+
+          <!--
+          <div class="d-flex justify-content-start">
             <img src="webion-logo.svg" alt="Webion" width="108" height="36" />
           </div>
-          <div class="col-10 d-flex justify-content-end gap-5">
+          <div class="d-flex justify-content-end gap-5">
+            -->
+          <!--start of bootstrap nav-->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-transparent p-21px">
+            <div class="container-fluid gap-4">
+              <img src="webion-logo.svg" alt="Webion" width="108" height="36" />
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown"
+                aria-controls="navbarNavDarkDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="justify-content-end collapse navbar-collapse " id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Home <i class="fa-solid fa-chevron-down fa-2xs"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                      <li>
+                        <a class="dropdown-item" href="#">Home version 1</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home version 2</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home version 3</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home version 4</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home blog</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home news</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Home portfolio</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Projects</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      News <i class="fa-solid fa-chevron-down fa-2xs"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                      <li>
+                        <a class="dropdown-item" href="#">Blog grid</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Blog grid + sidebar</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Blog list</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Blog list + sidebar</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Single post</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Single post + sidebar</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Shop <i class="fa-solid fa-chevron-down fa-2xs"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                      <li>
+                        <a class="dropdown-item" href="#">Shop with sidebar</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Cart</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Checkout</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">My account</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="text-white d-flex gap-4">
+                <div class="">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="white"
+                  >
+                    <path
+                      d="M6.29326 4.49994C6.29326 3.00879 7.5052 1.79998 9.0002 1.79998C10.4952 1.79998 11.7071 3.00879 11.7071 4.49994H13.5118C13.5118 2.01469 11.4919 0 9.0002 0C6.50853 0 4.48864 2.01469 4.48864 4.49994H6.29326Z"
+                    ></path>
+                    <path
+                      d="M1.75841 5.19779L0 5.60253L2.86834 18H15.1317L18 5.60253L16.2416 5.19779L13.6961 16.2H4.30394L1.75841 5.19779Z"
+                    ></path>
+                  </svg>
+                  <span class="menu-count">( 0 )</span>
+                </div>
+                <div class="menu-btn">
+                  <i class="fa-solid fa-magnifying-glass align-bottom"></i>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <!--start of my nav
             <nav>
               <ul class="list-group list-group-horizontal gap-4">
-                <li class="col"><a class="menu-btn" href="#">Home</a></li>
-                <li class="col"><a class="menu-btn" href="#">About</a></li>
-                <li class="col"><a class="menu-btn" href="#">Services</a></li>
-                <li class="col"><a class="menu-btn" href="#">Projects</a></li>
-                <li class="col"><a class="menu-btn" href="#">News</a></li>
-                <li class="col"><a class="menu-btn" href="#">Shop</a></li>
-                <li class="col"><a class="menu-btn" href="#">Contact</a></li>
+                <li class="">
+                  <a class="menu-btn has-dropdown-menu" href="#"
+                    >Home <i class="fa-solid fa-chevron-down fa-2xs"></i
+                  ></a>
+                  <ul
+                    class="list-group list-group-vertical gap-4 dropdown-menu"
+                  >
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home version 1</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home version 2</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home version 3</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home version 4</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home blog</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home news</a>
+                    </li>
+                    <li class="col">
+                      <a class="menu-btn" href="#">Home portfolio</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class=""><a class="menu-btn" href="#">About</a></li>
+                <li class=""><a class="menu-btn" href="#">Projects</a></li>
+                <li class="">
+                  <a class="menu-btn has-dropdown-menu" href="#"
+                    >News <i class="fa-solid fa-chevron-down fa-2xs"></i
+                  ></a>
+                </li>
+                <ul class="list-group list-group-vertical gap-4 dropdown-menu">
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 1</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 2</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 3</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 4</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home blog</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home news</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home portfolio</a>
+                  </li>
+                </ul>
+                <li class="">
+                  <a class="menu-btn has-dropdown-menu" href="#"
+                    >Shop <i class="fa-solid fa-chevron-down fa-2xs"></i
+                  ></a>
+                </li>
+                <ul class="list-group list-group-vertical gap-4 dropdown-menu">
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 1</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 2</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 3</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home version 4</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home blog</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home news</a>
+                  </li>
+                  <li class="col">
+                    <a class="menu-btn" href="#">Home portfolio</a>
+                  </li>
+                </ul>
+                <li class=""><a class="menu-btn" href="#">Contact</a></li>
+                <li class=""><a class="menu-btn" href="#">Services</a></li>
               </ul>
             </nav>
-            <div class="text-white d-flex gap-4">
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="white"><path d="M6.29326 4.49994C6.29326 3.00879 7.5052 1.79998 9.0002 1.79998C10.4952 1.79998 11.7071 3.00879 11.7071 4.49994H13.5118C13.5118 2.01469 11.4919 0 9.0002 0C6.50853 0 4.48864 2.01469 4.48864 4.49994H6.29326Z"></path><path d="M1.75841 5.19779L0 5.60253L2.86834 18H15.1317L18 5.60253L16.2416 5.19779L13.6961 16.2H4.30394L1.75841 5.19779Z"></path></svg>
-                    <span class="menu-count">( 0 )</span>
-                </div>
-                <div class="menu-btn" >
-                    <i class="fa-solid fa-magnifying-glass align-bottom"></i>
-                </div>
-            </div>
+            -->
+
+        <div
+          class="text-white d-flex flex-column align-items-center text-center"
+        >
+          <h1>Walking the city</h1>
+          <p>
+            A simple solution to complex problems.
+            <br />
+            Manage Information and succeed.
+          </p>
+          <div class="">
+            <button class="btn btn-outline-dark">Read more ➝</button>
           </div>
-        </header>
-        <div class="text-white d-flex flex-column align-items-center text-center">
-            <h1>
-                Walking the city
-            </h1>
-            <p>
-                A simple solution to complex problems.
-                <br/>
-                Manage Information and succeed.
-            </p>
-            <div class="">
-                <button class="btn btn-outline-dark">
-                Read more ➝    
-                </button>
-            </div>
         </div>
-        </title>
       </div>
     </div>
 

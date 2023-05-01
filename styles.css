@@ -43,3 +43,34 @@ h1 {
     font-size: 14px;
     margin: 50px 0px;
 }
+
+
+.dropdown-menu {
+    display: none;
+}
+
+.nav-link {
+    color: white;
+    font-size: 14px;
+}
+
+.sp-selected-button {
+    background-color: transparent;
+    background-image: radial-gradient(at center center, #FFFFFF 25%, #F2295B00 25%);
+    width: 36px;
+    height: 36px;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #FFFFFF;
+}
+
+.sp-button {
+    margin: 0px 3px 0px 3px;
+    background-color: transparent;
+    background-image: radial-gradient(at center center, #FFFFFF4D 25%, #FFFFFF00 25%);
+    width: 36px;
+    height: 36px;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #02010100;
+}
