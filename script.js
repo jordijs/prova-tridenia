@@ -13,22 +13,22 @@ $(document).ready(function () {
   //Carousel
   function updateBackground() {
     let bgUrlValue = "";
-    let currentSlide = 0;
+    let chosenSlideId = 0;
     let nextSlide = 0;
     let nextBgUrlValue = "";
 
     bgUrlValue = $("#custom-carousel").css("background-image");
 
     if (bgUrlValue.includes("slide1.jpg")) {
-      currentSlide = 1;
+      chosenSlideId = 1;
     } else if (bgUrlValue.includes("slide2.jpg")) {
-      currentSlide = 2;
+      chosenSlideId = 2;
     } else if (bgUrlValue.includes("slide3.jpg")) {
-      currentSlide = 3;
+      chosenSlideId = 3;
     }
 
-    if (currentSlide < 3) {
-      nextSlide = currentSlide + 1;
+    if (chosenSlideId < 3) {
+      nextSlide = chosenSlideId + 1;
     } else {
       nextSlide = 1;
     }
@@ -49,9 +49,42 @@ $(document).ready(function () {
     idToActivate = "#slider-icon-".concat(newSlide);
 
     console.log(idToActivate);
-    $(".slider-icon-active").removeClass('slider-icon-active').addClass('slider-icon');
-    $(idToActivate).removeClass('slider-icon').addClass('slider-icon-active');
+    $(".slider-icon-active")
+      .removeClass("slider-icon-active")
+      .addClass("slider-icon");
+    $(idToActivate).removeClass("slider-icon").addClass("slider-icon-active");
   }
 
-  updateBackground();
+  function setBackground(chosenSlideId) {
+    let nextBgUrlValue = "";
+
+    nextBgUrlValue = "url('slide".concat(chosenSlideId).concat(".jpg')");
+
+    $("#custom-carousel").css("background-image", nextBgUrlValue);
+
+    updateSliderIcon(chosenSlideId);
+  }
+
+  setTimeout(function () {
+    updateBackground();
+  }, 5000);
+
+  $(".slider-icon, .slider-icon-active").on("click", function () {
+    let clickedIcon = ""
+    let chosenSlideId = 0;
+
+    clickedIcon = $(this).attr("id");
+
+    if (clickedIcon.includes("slider-icon-1")) {
+        chosenSlideId = 1;
+      } else if (clickedIcon.includes("slider-icon-2")) {
+        chosenSlideId = 2;
+      } else if (clickedIcon.includes("slider-icon-3")) {
+        chosenSlideId = 3;
+      }
+
+    console.log(chosenSlideId);
+
+    setBackground(chosenSlideId);
+  });
 });
