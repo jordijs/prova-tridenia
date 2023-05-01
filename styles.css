@@ -54,7 +54,7 @@ h1 {
     font-size: 14px;
 }
 
-.sp-selected-button {
+.slider-icon-active {
     background-color: transparent;
     background-image: radial-gradient(at center center, #FFFFFF 25%, #F2295B00 25%);
     width: 36px;
@@ -65,7 +65,7 @@ h1 {
     border-radius: 50%;
 }
 
-.sp-button {
+.slider-icon {
     margin: 0px 3px 0px 3px;
     background-color: transparent;
     background-image: radial-gradient(at center center, #FFFFFF4D 25%, #FFFFFF00 25%);
