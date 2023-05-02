@@ -32,7 +32,7 @@ $(document).ready(function () {
       nextSlide = 1;
     }
 
-    nextBgUrlValue = "url('slide".concat(nextSlide).concat(".jpg')");
+    nextBgUrlValue = "url('img/slide".concat(nextSlide).concat(".jpg')");
 
     $("#custom-carousel").css("background-image", nextBgUrlValue);
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
   function setBackground(chosenSlideId) {
     let nextBgUrlValue = "";
 
-    nextBgUrlValue = "url('slide".concat(chosenSlideId).concat(".jpg')");
+    nextBgUrlValue = "url('img/slide".concat(chosenSlideId).concat(".jpg')");
 
     $("#custom-carousel").css("background-image", nextBgUrlValue);
 
