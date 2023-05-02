@@ -31,6 +31,10 @@ ul {
     font-size: 14px;
 }
 
+#search{
+    font-size: 22px;
+}
+
 body {
     font-family: "Gothic A1", Sans-serif;
 }
@@ -176,4 +180,10 @@ h1 {
     font-size: 15px;
     color: rgb(166, 166, 166);
     text-align: center;
+}
+
+.navbar-toggler {
+    border: none !important;
+    color: white;
+    font-size: 24px;
 }
