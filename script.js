@@ -11,6 +11,10 @@ $(document).ready(function () {
       });
   }
 
+  //Global variables for Carousel functions
+  let autoUpdate = true;
+  let timeoutId;
+
   //Carousel: Update background every 5 seconds
   function updateBackground() {
     let bgUrlValue = "";
@@ -18,31 +22,35 @@ $(document).ready(function () {
     let nextSlide = 0;
     let nextBgUrlValue = "";
 
-    bgUrlValue = $("#custom-carousel").css("background-image");
+    if (autoUpdate) {
+      bgUrlValue = $("#custom-carousel").css("background-image");
 
-    if (bgUrlValue.includes("slide1.jpg")) {
-      chosenSlideId = 1;
-    } else if (bgUrlValue.includes("slide2.jpg")) {
-      chosenSlideId = 2;
-    } else if (bgUrlValue.includes("slide3.jpg")) {
-      chosenSlideId = 3;
+      if (bgUrlValue.includes("slide1.jpg")) {
+        chosenSlideId = 1;
+      } else if (bgUrlValue.includes("slide2.jpg")) {
+        chosenSlideId = 2;
+      } else if (bgUrlValue.includes("slide3.jpg")) {
+        chosenSlideId = 3;
+      }
+
+      if (chosenSlideId < 3) {
+        nextSlide = chosenSlideId + 1;
+      } else {
+        nextSlide = 1;
+      }
+
+      nextBgUrlValue = "url('img/slide".concat(nextSlide).concat(".jpg')");
+
+      $("#custom-carousel").css("background-image", nextBgUrlValue);
+
+      updateSliderIcon(nextSlide);
+
+      clearTimeout(timeoutId);
+
+      timeoutId = setTimeout(function () {
+        updateBackground();
+      }, 5000);
     }
-
-    if (chosenSlideId < 3) {
-      nextSlide = chosenSlideId + 1;
-    } else {
-      nextSlide = 1;
-    }
-
-    nextBgUrlValue = "url('img/slide".concat(nextSlide).concat(".jpg')");
-
-    $("#custom-carousel").css("background-image", nextBgUrlValue);
-
-    updateSliderIcon(nextSlide);
-
-    setTimeout(function () {
-      updateBackground();
-    }, 5000);
   }
 
   //Carousel: Update slider Icon. Called from updateBackground()
@@ -66,14 +74,21 @@ $(document).ready(function () {
 
     $("#custom-carousel").css("background-image", nextBgUrlValue);
 
+    autoUpdate = false;
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(function () {
+      autoUpdate = true;
+      updateBackground();
+    }, 5000);
+
     updateSliderIcon(chosenSlideId);
   }
 
   //Carousel: Get the desired slider based on clicked icon
   function triggerClickIconSlider() {
-
     $(".slider-icon, .slider-icon-active").on("click", function () {
-
       let clickedIcon = "";
       let chosenSlideId = 0;
 
@@ -88,16 +103,12 @@ $(document).ready(function () {
       }
 
       setBackground(chosenSlideId);
-
     });
-
   }
 
-  //Take data from JSON file and assign it to columns 
+  //Take data from JSON file and assign it to columns
   function getColumnsFromJson() {
-
     $.getJSON("https://www.tridenia.com/maquetacio/list.php", function (data) {
-
       let items = data.items;
       let column1 = "";
       let column2 = "";
@@ -128,7 +139,6 @@ $(document).ready(function () {
       $("#column2").html(column2);
       $("#column3").html(column3);
     });
-
   }
 
   // Show overlay on images when mouse hover
@@ -155,5 +165,4 @@ $(document).ready(function () {
   getColumnsFromJson();
 
   showOverlay();
-
 });
