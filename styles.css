@@ -81,6 +81,10 @@ ul {
 
 .dropdown-menu {
     display: none;
+    border-radius: 0px;
+    border: none;
+    padding: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .2);
 }
 
 .nav-link {
