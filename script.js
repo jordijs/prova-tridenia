@@ -1,15 +1,17 @@
 $(document).ready(function () {
   //Dropdown
-  $(".dropdown")
-    .on("mouseenter", function () {
-      $(this).find(".dropdown-menu").first().fadeIn();
-    })
-    .on("mouseleave", function () {
-      console.log("Marxa el hover");
-      $(this).find(".dropdown-menu").first().fadeOut();
-    });
+  function dropDownEffect() {
+    $(".dropdown")
+      .on("mouseenter", function () {
+        $(this).find(".dropdown-menu").first().fadeIn();
+      })
+      .on("mouseleave", function () {
+        console.log("Marxa el hover");
+        $(this).find(".dropdown-menu").first().fadeOut();
+      });
+  }
 
-  //Carousel
+  //Carousel: Update background every 5 seconds
   function updateBackground() {
     let bgUrlValue = "";
     let chosenSlideId = 0;
@@ -43,16 +45,20 @@ $(document).ready(function () {
     }, 5000);
   }
 
+  //Carousel: Update slider Icon. Called from updateBackground()
   function updateSliderIcon(newSlide) {
     let idToActivate = "";
+
     idToActivate = "#slider-icon-".concat(newSlide);
 
     $(".slider-icon-active")
       .removeClass("slider-icon-active")
       .addClass("slider-icon");
+
     $(idToActivate).removeClass("slider-icon").addClass("slider-icon-active");
   }
 
+  //Carousel: Manually change background. Called from triggerClickIconSlider()
   function setBackground(chosenSlideId) {
     let nextBgUrlValue = "";
 
@@ -63,8 +69,11 @@ $(document).ready(function () {
     updateSliderIcon(chosenSlideId);
   }
 
+  //Carousel: Get the desired slider based on clicked icon
   function triggerClickIconSlider() {
+
     $(".slider-icon, .slider-icon-active").on("click", function () {
+
       let clickedIcon = "";
       let chosenSlideId = 0;
 
@@ -79,16 +88,21 @@ $(document).ready(function () {
       }
 
       setBackground(chosenSlideId);
+
     });
+
   }
 
+  //Take data from JSON file and assign it to columns 
   function getColumnsFromJson() {
+
     $.getJSON("https://www.tridenia.com/maquetacio/list.php", function (data) {
+
       let items = data.items;
       let column1 = "";
       let column2 = "";
       let column3 = "";
-      let columnName = "";
+
       for (var i = 0; i < items.length; i++) {
         let num = i + 1;
         let item = items[i];
@@ -114,18 +128,23 @@ $(document).ready(function () {
       $("#column2").html(column2);
       $("#column3").html(column3);
     });
+
   }
 
+  // Show overlay on images when mouse hover
   function showOverlay() {
-
     $(".image_wrapper")
-    .on("mouseenter", function() {
-      $(".overlay", this).slideDown();
-    })
-    .on("mouseleave", function() {
-      $(".overlay", this).slideUp();
-    });
+      .on("mouseenter", function () {
+        $(".overlay", this).slideDown();
+      })
+      .on("mouseleave", function () {
+        $(".overlay", this).slideUp();
+      });
   }
+
+  //Call the functions previously created
+
+  dropDownEffect();
 
   setTimeout(function () {
     updateBackground();
@@ -135,6 +154,6 @@ $(document).ready(function () {
 
   getColumnsFromJson();
 
-  
   showOverlay();
+
 });

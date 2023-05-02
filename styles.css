@@ -1,39 +1,4 @@
-.container {
-    max-width: 1400px;
-    padding: 0px;
-}
-
-.container-fluid {
-    padding: 0px;
-}
-
-.p-21px {
-    padding: 21px;
-}
-
-ul {
-    list-style-type: none;
-}
-
-.menu-btn {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-}
-
-.menu-btn:hover {
-    text-decoration: underline;
-    color: white;
-}
-
-.menu-count {
-    color: white;
-    font-size: 14px;
-}
-
-#search{
-    font-size: 22px;
-}
+/*Customize core html elements*/
 
 body {
     font-family: "Gothic A1", Sans-serif;
@@ -44,6 +9,27 @@ h1 {
     font-size: 72px;
 }
 
+ul {
+    list-style-type: none;
+}
+
+
+/*Layout*/
+.container {
+    max-width: 1400px;
+    padding: 0px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.row {
+    margin: 0px;
+}
+
+
+/*Buttons*/
 .btn {
     border-radius: 25px;
     font-size: 14px;
@@ -68,6 +54,31 @@ h1 {
 }
 
 
+/*Navbar area*/
+.navbar {
+    padding: 21px;
+}
+
+.menu-btn {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.menu-btn:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.menu-count {
+    color: white;
+    font-size: 14px;
+}
+
+#search {
+    font-size: 22px;
+}
+
 .dropdown-menu {
     display: none;
 }
@@ -77,6 +88,15 @@ h1 {
     font-size: 14px;
 }
 
+.navbar-toggler {
+    border: none !important;
+    color: white;
+    font-size: 24px;
+    padding: 0;
+}
+
+
+/*Carousel area*/
 .slider-icon-active {
     background-color: transparent;
     background-image: radial-gradient(at center center, #FFFFFF 25%, #F2295B00 25%);
@@ -106,6 +126,8 @@ h1 {
     height: 693px;
 }
 
+
+/*Cards*/
 .card {
     padding: 49px 40px 45px 39px;
     border-radius: 0%;
@@ -128,6 +150,8 @@ h1 {
     color: #999999;
 }
 
+
+/*Section elements*/
 .section {
     padding: 150px 10px;
     max-width: 1200px;
@@ -147,14 +171,11 @@ h1 {
     padding: 0px;
 }
 
-.row {
-    margin: 0px;
-}
 
+/*Image overlay components*/
 .image_wrapper {
     position: relative;
 }
-
 
 .overlay {
     position: absolute;
@@ -180,11 +201,4 @@ h1 {
     font-size: 15px;
     color: rgb(166, 166, 166);
     text-align: center;
-}
-
-.navbar-toggler {
-    border: none !important;
-    color: white;
-    font-size: 24px;
-    padding: 0;
 }
