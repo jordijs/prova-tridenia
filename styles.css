@@ -40,13 +40,27 @@ h1 {
     font-size: 72px;
 }
 
+.btn {
+    border-radius: 25px;
+    font-size: 14px;
+    padding: 16px 52px 13px 52px;
+}
+
 .btn-outline-dark {
     background-color: white;
     border: none;
-    border-radius: 25px;
-    padding: 16px 52px 13px 52px;
-    font-size: 14px;
+
     margin: 50px 0px;
+}
+
+.btn-outline-light {
+    background-color: #191919;
+    border-color: #191919;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    border-color: #191919;
 }
 
 
@@ -110,19 +124,25 @@ h1 {
     color: #999999;
 }
 
- #modern-design {
+.section {
     padding: 150px 10px;
     max-width: 1200px;
     color: #191919;
     font-family: "Gothic A1", Sans-serif;
- }
+}
 
- #modern-design > h2 {
- font-size: 48px;
- font-weight: 700;
- }
+.section-title {
+    font-size: 48px;
+    font-weight: 700;
+    padding: 0px;
+}
 
- #modern-design > p {
+.section-p {
     font-size: 18px;
     font-weight: 400;
-    }
+    padding: 0px;
+}
+
+.row {
+    margin:0px;
+}
