@@ -2,7 +2,6 @@ $(document).ready(function () {
   //Dropdown
   $(".dropdown")
     .on("mouseenter", function () {
-      console.log("Hover");
       $(this).find(".dropdown-menu").first().fadeIn();
     })
     .on("mouseleave", function () {
@@ -48,7 +47,6 @@ $(document).ready(function () {
     let idToActivate = "";
     idToActivate = "#slider-icon-".concat(newSlide);
 
-    console.log(idToActivate);
     $(".slider-icon-active")
       .removeClass("slider-icon-active")
       .addClass("slider-icon");
@@ -65,17 +63,14 @@ $(document).ready(function () {
     updateSliderIcon(chosenSlideId);
   }
 
-  setTimeout(function () {
-    updateBackground();
-  }, 5000);
+  function triggerClickIconSlider() {
+    $(".slider-icon, .slider-icon-active").on("click", function () {
+      let clickedIcon = "";
+      let chosenSlideId = 0;
 
-  $(".slider-icon, .slider-icon-active").on("click", function () {
-    let clickedIcon = ""
-    let chosenSlideId = 0;
+      clickedIcon = $(this).attr("id");
 
-    clickedIcon = $(this).attr("id");
-
-    if (clickedIcon.includes("slider-icon-1")) {
+      if (clickedIcon.includes("slider-icon-1")) {
         chosenSlideId = 1;
       } else if (clickedIcon.includes("slider-icon-2")) {
         chosenSlideId = 2;
@@ -83,8 +78,48 @@ $(document).ready(function () {
         chosenSlideId = 3;
       }
 
-    console.log(chosenSlideId);
+      setBackground(chosenSlideId);
+    });
+  }
 
-    setBackground(chosenSlideId);
-  });
+  function getColumnsFromJson() {
+    $.getJSON("https://www.tridenia.com/maquetacio/list.php", function (data) {
+      let items = data.items;
+      let column1 = "";
+      let column2 = "";
+      let column3 = "";
+      let columnName = ""
+      for (var i = 0; i < items.length; i++) {
+        let num = i + 1;
+        let item = items[i];
+        let itemHtml =
+          "<div class='card d-flex justify-content-between'><div class='card-number align-self-start'>0" +
+          num + "</div><div class='align-self-end'><div class='icon'><img src='icons/"+
+        item.icon +
+          ".svg' /></div><h3 class='card-title'>" +
+          item.title +
+          "</h3><p class='card-text'>" +
+          item.text +
+          "</p></div>";
+        if (i == 0) {
+          column1 += itemHtml;
+        } else if (i == 1 ) {
+          column2 += itemHtml;
+        } else {
+          column3 += itemHtml;
+        }
+      }
+      $("#column1").html(column1);
+      $("#column2").html(column2);
+      $("#column3").html(column3);
+    });
+  }
+
+  setTimeout(function () {
+    updateBackground();
+  }, 5000);
+
+  triggerClickIconSlider();
+
+  getColumnsFromJson();
 });

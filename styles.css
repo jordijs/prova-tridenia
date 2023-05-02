@@ -1,5 +1,10 @@
 .container {
     max-width: 1400px;
+    padding: 0px;
+}
+
+.container-fluid {
+    padding: 0px;
 }
 
 .p-21px {
@@ -7,7 +12,7 @@
 }
 
 ul {
-    list-style-type: none; 
+    list-style-type: none;
 }
 
 .menu-btn {
@@ -28,7 +33,7 @@ ul {
 
 body {
     font-family: "Gothic A1", Sans-serif;
-  }
+}
 
 h1 {
     font-weight: 700;
@@ -81,4 +86,28 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     height: 693px;
+}
+
+.card {
+    padding: 49px 40px 45px 39px;
+    border-radius: 0%;
+    border-color: #191919;
+    height: 500px;
+    color: #191919;
+    font-family: "Gothic A1", Sans-serif;
+}
+
+.card-number {
+    font-size: 18px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.card-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #999999;
 }
