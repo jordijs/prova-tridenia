@@ -144,5 +144,36 @@ h1 {
 }
 
 .row {
-    margin:0px;
+    margin: 0px;
+}
+
+.image_wrapper {
+    position: relative;
+}
+
+
+.overlay {
+    position: absolute;
+    background: rgba(57, 57, 57, 0.9);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-title {
+    font-weight: 900;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.overlay-subtitle {
+    font-weight: 200;
+    font-size: 15px;
+    color: rgb(166, 166, 166);
+    text-align: center;
 }

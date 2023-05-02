@@ -88,14 +88,15 @@ $(document).ready(function () {
       let column1 = "";
       let column2 = "";
       let column3 = "";
-      let columnName = ""
+      let columnName = "";
       for (var i = 0; i < items.length; i++) {
         let num = i + 1;
         let item = items[i];
         let itemHtml =
           "<div class='card d-flex justify-content-between'><div class='card-number align-self-start'>0" +
-          num + "</div><div class='align-self-end'><div class='icon'><img src='icons/"+
-        item.icon +
+          num +
+          "</div><div class='align-self-end'><div class='icon'><img src='icons/" +
+          item.icon +
           ".svg' /></div><h3 class='card-title'>" +
           item.title +
           "</h3><p class='card-text'>" +
@@ -103,7 +104,7 @@ $(document).ready(function () {
           "</p></div>";
         if (i == 0) {
           column1 += itemHtml;
-        } else if (i == 1 ) {
+        } else if (i == 1) {
           column2 += itemHtml;
         } else {
           column3 += itemHtml;
@@ -115,6 +116,17 @@ $(document).ready(function () {
     });
   }
 
+  function showOverlay() {
+
+    $(".image_wrapper")
+    .on("mouseenter", function() {
+      $(".overlay", this).slideDown();
+    })
+    .on("mouseleave", function() {
+      $(".overlay", this).slideUp();
+    });
+  }
+
   setTimeout(function () {
     updateBackground();
   }, 5000);
@@ -122,4 +134,7 @@ $(document).ready(function () {
   triggerClickIconSlider();
 
   getColumnsFromJson();
+
+  
+  showOverlay();
 });
