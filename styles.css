@@ -91,10 +91,8 @@ h1 {
 .card {
     padding: 49px 40px 45px 39px;
     border-radius: 0%;
-    border-color: #191919;
+    border-color: #3d3d3d;
     height: 500px;
-    color: #191919;
-    font-family: "Gothic A1", Sans-serif;
 }
 
 .card-number {
@@ -111,3 +109,20 @@ h1 {
     font-weight: 300;
     color: #999999;
 }
+
+ #modern-design {
+    padding: 150px 10px;
+    max-width: 1200px;
+    color: #191919;
+    font-family: "Gothic A1", Sans-serif;
+ }
+
+ #modern-design > h2 {
+ font-size: 48px;
+ font-weight: 700;
+ }
+
+ #modern-design > p {
+    font-size: 18px;
+    font-weight: 400;
+    }
